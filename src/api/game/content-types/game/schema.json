@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "games",
+  "info": {
+    "singularName": "game",
+    "pluralName": "games",
+    "displayName": "game"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "homeTeam": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team.team"
+    },
+    "awayTeam": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team.team"
+    },
+    "homeFinal": {
+      "type": "integer"
+    },
+    "awayFinal": {
+      "type": "integer"
+    },
+    "gameStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Complete",
+        "Future",
+        "Postponed",
+        "Delayed",
+        "Canceled"
+      ]
+    },
+    "inningNumber": {
+      "type": "integer"
+    },
+    "inningHalf": {
+      "type": "enumeration",
+      "enum": [
+        "Top",
+        "Bottom"
+      ]
+    },
+    "currentOuts": {
+      "type": "integer",
+      "default": 0,
+      "max": 2
+    },
+    "event": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event.event"
+    }
+  }
+}
